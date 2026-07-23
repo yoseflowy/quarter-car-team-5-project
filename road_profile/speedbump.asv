@@ -1,0 +1,10 @@
+
+function z_modified = speedBump(x, z, span, height, startPos)
+
+index = (x <= startPos + span & x >= startPos);
+
+
+z_modified = z;
+z_modified(index) = z_modified(index) + (height * sin(x(index)*pi/span));
+
+end
