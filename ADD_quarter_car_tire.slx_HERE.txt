@@ -1,1 +1,0 @@
-Place quarter_car_tire.slx in this folder before running runAllRoadProfiles.m.
