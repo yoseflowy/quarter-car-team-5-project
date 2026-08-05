@@ -150,4 +150,34 @@ Please note: some of the examples below will help you learn about spring and dam
 ## Project Difficulty
 - Intermediate
     - Community college transfer students
-    - 3rd year undergraduate or above 
+    - 3rd year undergraduate or above
+
+---
+
+## Team 5 — Repository Layout
+
+```
+suspensionParameters.m              Single source of truth for Ks, Cs, ms, mu, Kt, Ct
+QuarterCar_RoadProfile_TeamPackage/ Current working model and test suite
+    quarter_car_tire.slx            Quarter-car model: road plate -> tire -> unsprung
+                                    mass -> suspension -> sprung mass
+    runAllRoadProfiles.m            Runs all 5 road profiles through the model
+    roadInputForTire.m              Builds a single road profile for a manual run
+    speedbump.m pothole.m roughroad.m ramp.m curvedramp.m
+                                    Road-profile functions, signature:
+                                    z = f(x, z, startPos, span, height)
+    README_FIRST.txt                How to run the suite; current known gaps
+archive/                            Earlier models, not used by the test suite
+QuarterCarSuspension_StudentProjectTemplate.mlx   Assignment template
+```
+
+**Progress against the suggested steps above:**
+
+| Step | Status |
+|---|---|
+| 1. Baseline multibody model | Done — `quarter_car_tire.slx` |
+| 2. Road test suite (3–5 cases) | Done — 5 profiles |
+| 3. Log signals + objective metrics | **Not started** — the model has Scope blocks only, nothing is logged to the workspace |
+| 4. Automated test runner | Partial — `runAllRoadProfiles.m` runs every case but computes no metrics and has no pass/fail |
+| 5. Tune `Ks` / `Cs` | Not started |
+| 6. Robustness variation | Not started — also blocked by the hard-coded 600 kg Sprung Mass block (`ms` is currently ignored) | 
